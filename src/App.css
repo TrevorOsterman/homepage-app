@@ -1,6 +1,7 @@
 * {
   font-family: "Lato", sans-serif;
   margin: 0;
+  color: white;
 }
 
 .App {
@@ -8,12 +9,10 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-content: space-around;
-  justify-content: space-around;
+  align-content: center;
+  justify-content: center;
   text-align: center;
-  background: rgb(193, 161, 195);
-}
-
-.greet-date {
-  color: white;
+  background: url(trees.jpg);
+  background-size: cover;
+  background-position: bottom center;
 }

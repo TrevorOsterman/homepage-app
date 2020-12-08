@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import TodoList from "./TodoList";
 
 class App extends React.Component {
   state = {
@@ -24,15 +25,21 @@ class App extends React.Component {
     }
 
     this.setState({ date: date, time: time });
-    setTimeout(() => this.setState({ comps: true }), 2000);
+    setTimeout(() => this.setState({ comps: true }), 3000);
   }
 
   render() {
     return (
       <div className="App">
-        <div className="greet-date">
+        <div
+          className="greet-date"
+          style={{
+            transition: "transform 1s",
+            transform: this.state.comps ? "translateY(-30px)" : null,
+          }}
+        >
           <h1
-            className="animate__animated animate__fadeInUp greeting"
+            className="animate__animated animate__fadeInUp animate__delay-1s greeting"
             style={{ fontSize: 60 }}
           >
             good{" "}
@@ -41,10 +48,20 @@ class App extends React.Component {
             </span>
             , trevor.
           </h1>
-          <h2 className="animate__animated animate__fadeInUp animate__delay-1s date">
+          <h2 className="animate__animated animate__fadeInUp animate__delay-2s date">
             it's {this.state.date}
           </h2>
-          <h3 style={{ display: this.state.comps ? "flex" : "none" }}>BUTTS</h3>
+        </div>
+        <div
+          className="comps"
+          style={{
+            width: "100%",
+            height: "33%",
+            display: this.state.comps ? "flex" : "none",
+            justifyContent: "space-around",
+          }}
+        >
+          <TodoList style={this.state.comps} />
         </div>
       </div>
     );
